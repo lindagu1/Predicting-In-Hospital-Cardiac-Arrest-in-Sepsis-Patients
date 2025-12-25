@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains a **Phase V data science research project** focused on predicting **in-hospital cardiac arrest among sepsis patients** using structured electronic health record (EHR) data from the MIMIC-III clinical database.
+This repository contains a **data science research project** focused on predicting **in-hospital cardiac arrest among sepsis patients** using structured electronic health record (EHR) data from the MIMIC-III clinical database.
 
 The project is framed as a **clinical risk prediction problem**, emphasizing cohort construction, data cleaning, exploratory analysis, and interpretable modeling. The goal is to assess whether patient demographics and admission-related features available early in a hospital stay contain a meaningful predictive signal for cardiac arrest risk.
 
@@ -78,8 +78,8 @@ The resulting cleaned cohort is exported as a structured tabular dataset for dow
 ```text
 Predicting-In-Hospital-Cardiac-Arrest-in-Sepsis-Patients/
 │
-├── 01_data_cleaning.ipynb     # Phase II data cleaning and cohort construction
-├── data_clean_cohort.csv     # Cleaned cohort dataset exported from Phase II
+├── 01_data_cleaning.ipynb     # Data cleaning and cohort construction
+├── data_clean_cohort.csv     # Cleaned cohort dataset exported from 01_data_cleaning
 ├── ADMISSIONS.csv            # Raw MIMIC-III admissions table
 ├── ICUSTAYS.csv              # Raw MIMIC-III ICU stays table
 ├── TRANSFERS.csv             # Raw MIMIC-III transfers table
