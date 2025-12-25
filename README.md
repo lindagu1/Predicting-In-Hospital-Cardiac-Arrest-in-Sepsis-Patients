@@ -36,7 +36,7 @@ Access to MIMIC-III requires credentialing and completion of required training.
 
 ## Methodology
 
-1. **Data Cleaning & Cohort Construction**
+1. **Data Cleaning & Cohort Construction Seen in DataCleaning.**
 
    * Filtered admissions for sepsis patients
    * Identified in-hospital cardiac arrest outcomes
@@ -73,6 +73,7 @@ Access to MIMIC-III requires credentialing and completion of required training.
 ```
 ├── Phase_V.ipynb        # Main analysis notebook
 ├── README.md           # Project overview and documentation
+├── Clean_Data.ipynb       # Responsible for 
 ```
 
 ---
