@@ -2,33 +2,33 @@
 
 ## Overview
 
-This repository contains a Phase V research project that investigates the prediction of **in-hospital cardiac arrest among sepsis patients** using electronic health record (EHR) data. The project leverages the MIMIC-III clinical database to explore patient characteristics, admission context, and clinical variables associated with elevated cardiac arrest risk.
+This repository contains a **Phase V data science research project** focused on predicting **in-hospital cardiac arrest among sepsis patients** using structured electronic health record (EHR) data from the MIMIC-III clinical database.
 
-The work is framed as a clinical risk prediction study with an emphasis on transparent analysis, statistical reasoning, and reproducibility.
+The project is framed as a **clinical risk prediction problem**, emphasizing cohort construction, data cleaning, exploratory analysis, and interpretable modeling. The goal is to assess whether patient demographics and admission-related features available early in a hospital stay contain a meaningful predictive signal for cardiac arrest risk.
 
 ---
 
-## Primary Research Question
+## Research Question
 
-**Can patient demographics and admission-related factors be used to predict in-hospital cardiac arrest among patients diagnosed with sepsis?**
+**Can patient demographics and admission-related characteristics be used to predict in-hospital cardiac arrest among patients diagnosed with sepsis?**
 
 ---
 
 ## Key Findings
 
-* **Age** is a strong predictor of in-hospital cardiac arrest among sepsis patients.
-* **Emergency admissions** are associated with a higher arrest risk compared to urgent admissions.
-* Admission context and patient demographics may serve as useful early indicators for risk stratification models.
+- **Age** is a strong predictor of in-hospital cardiac arrest among sepsis patients.
+- **Emergency admissions** are associated with higher arrest risk compared to other admission types.
+- Admission context and basic demographic features may serve as useful early indicators for clinical risk stratification.
 
-These findings suggest that relatively simple features available early in a hospital stay may carry a meaningful predictive signal.
+These results suggest that relatively simple, early-available features can provide a meaningful signal for downstream predictive models.
 
 ---
 
 ## Data Source
 
-* **MIMIC-III Clinical Database**
-* De-identified ICU patient data from a single tertiary-care hospital
-* Age values capped at 89 years to comply with HIPAA de-identification standards
+- **MIMIC-III Clinical Database**
+- De-identified ICU patient data from a single tertiary-care hospital
+- Age values capped at 89 years to comply with HIPAA de-identification standards
 
 Access to MIMIC-III requires credentialing and completion of required training.
 
@@ -36,52 +36,51 @@ Access to MIMIC-III requires credentialing and completion of required training.
 
 ## Methodology
 
-1. **Data Cleaning & Cohort Construction Seen in DataCleaning.**
+### Phase II: Data Cleaning and Cohort Construction
 
-   * Filtered admissions for sepsis patients
-   * Identified in-hospital cardiac arrest outcomes
-   * Processed demographic and admission-related variables
+Data preprocessing and cohort construction are performed in `01_data_cleaning.ipynb`, including:
 
-2. **Exploratory Data Analysis**
+- Filtering admissions to identify sepsis-related ICU stays
+- Identifying in-hospital cardiac arrest outcomes
+- Merging admissions, ICU stay, and transfer-level tables
+- Cleaning demographic and admission-related variables
 
-   * Distributional analysis of age and admission types
-   * Outcome prevalence across patient subgroups
+The resulting cleaned cohort is exported as a structured tabular dataset for downstream analysis.
 
-3. **Modeling Approach**
+### Exploratory Data Analysis
 
-   * Iterative model development informed by exploratory findings
-   * Initial modeling followed by a project pivot after group reassessment
-   * Final models focused on interpretable predictors
+- Distributional analysis of age and admission types
+- Examination of outcome prevalence across patient subgroups
 
-4. **Evaluation**
+### Modeling Approach
 
-   * Model interpretation prioritized over raw predictive performance
-   * Results analyzed in the context of clinical plausibility
+- Iterative, interpretable model development informed by exploratory findings
+- Emphasis on transparent statistical reasoning rather than black-box performance
+- Focus on demographic and admission-context predictors
+
+### Evaluation
+
+- Model interpretation prioritized over raw predictive accuracy
+- Results assessed for clinical plausibility and consistency
 
 ---
 
 ## Limitations
 
-* Single-center dataset limits generalizability
-* Age censoring at 89 may attenuate effects in the oldest patients
-* Admission-type distribution imbalance
+- Single-center dataset limits generalizability
+- Age censoring at 89 may attenuate effects among the oldest patients
+- Class imbalance in cardiac arrest outcomes
 
 ---
 
 ## Repository Structure
 
-```
-├── Phase_V.ipynb        # Main analysis notebook
-├── README.md           # Project overview and documentation
-├── Clean_Data.ipynb       # Responsible for 
-```
-
----
-
-## Reproducibility
-
-All analysis is contained within the Jupyter notebook. The project is designed to be:
-
-* Fully reproducible given access to MIMIC-III
-* Transparent in assumptions and modeling choices
-* Suitable for academic review or instructional use
+```text
+Predicting-In-Hospital-Cardiac-Arrest-in-Sepsis-Patients/
+│
+├── 01_data_cleaning.ipynb     # Phase II data cleaning and cohort construction
+├── data_clean_cohort.csv     # Cleaned cohort dataset exported from Phase II
+├── ADMISSIONS.csv            # Raw MIMIC-III admissions table
+├── ICUSTAYS.csv              # Raw MIMIC-III ICU stays table
+├── TRANSFERS.csv             # Raw MIMIC-III transfers table
+├── README.md                 # Project documentation
